@@ -1,3 +1,4 @@
+import os
 import asyncio
 import csv
 from io import StringIO
@@ -13,7 +14,7 @@ from apscheduler.triggers.interval import IntervalTrigger
 from sqlalchemy.orm import joinedload
 from database import SessionLocal, Task, Category
 
-API_TOKEN = "YOUR_TOKEN"
+API_TOKEN = os.getenv('API_TOKEN')
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
